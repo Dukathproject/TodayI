@@ -1,0 +1,34 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Historias</p>
+            <div class="list-group">
+                <li class="list-group-item active"><%= stories.origAuthor %></li>
+                <li class="list-group-item">Info 2</li>
+                <li class="list-group-item">Info 3</li>
+            </div>
+        </div>
+        <div class="card col-md-9">
+            <div class="img-responsive">
+                <img class="card-img-top" src="<%= stories.image %>">
+                <div class="caption">
+                    <h5 class="pull-right">$<%= stories.description %></h5>
+                    <h4><a href=""><%= stories.name %></a></h4>
+                    <p><%= stories.bodytext %></p>
+
+                    <% if(currentUser && post.author.id.equals(currentUser._id)){ %>
+                        <a href="/posts/stories/new" class="btn btn-sm btn-primary">Nueva Historia</a>
+                        <a class="btn btn-sm btn-warning" href="/stories/<%= stories._id %>/edit">Editar Historia</a>
+                        <form id="form-delete" class="form-inline" action="/stories/<%= stories._id %>?_method=DELETE" method="POST">
+                            <button class="form-control btn btn-sm btn-danger">Eliminar Historia</button>
+                    </form>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

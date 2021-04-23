@@ -1,0 +1,76 @@
+<%- include("../partials/header") %>
+
+
+<!--DESCRIPCIÓN GENERAL-->
+  
+<section class="container-fluid px-0">
+    <div class="galleryGroup row align-items-top">
+        <div class="galleryGroup col-lg-6">
+            <div id="headingGroup" class="img-fluid galleryImg text-center mt-2">
+                    <img class="galleryImg img-fluid" id="home-logo" src="https://i.imgur.com/CoyFYqC.png" alt="Piccolina's Logo">
+                    <h3>Historias ambientadas</h3>
+                    <p>¡Utilizá auriculares para una experiencia completa!</p>
+                    <% if(!currentUser){ %>
+                        <% } else { %>
+                            <p>
+                                <a href="/posts/new" class="btn btn-primary btn-lg">Nueva Categoría de historias</a>
+                            </p>
+                    <% } %>
+            </div>
+        </div>
+        <div class="galleryGroup col-lg-6">
+            <img id="presentationImg" class="d-lg-block galleryImg img-fluid" src="https://i.imgur.com/ftgbsS8.png" alt="">
+        </div>
+    </div>
+</section>
+
+<!--GENERADOR DE POSTEOS (REVISAR)-->
+
+<% posts.forEach(function(aPost){ %>
+    <section class="container-fluid px-0">
+        <a class="row align-items-center content" href="/posts/<%=aPost._id%>">
+            <div class="galleryGroup col-md-6 order-2 order-md-1">
+                <img src="<%=aPost.image%>" alt="" class="galleryImg img-fluid">
+            </div>
+            <div class="galleryGroup col-md-6 text-center order-1 order-md-2">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
+                        <h2><%=aPost.name%></h2>
+                        <p class="lead"><%=aPost.description%></p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </section>
+<% }); %>
+
+<!--QUOTE -->
+<!--
+<%function randomInt(min, max){%>
+    <%return min + Math.floor((max - min) * Math.random())%>
+    <%}%>
+<%var randomQuote = [{quote: "Prefiero comer pasta y beber vino que ser talle 0.", author: "Sophia Loren"},
+{quote: "El secreto del éxito en la vida es comer lo que te gusta y dejar que la comida combata dentro.", author: "Mark Twain"},
+{quote: "Si no puedes alimentar a 100 personas, alimenta sólo a una.", author: "Madre Teresa de Calcuta"},
+{quote: "Los espaguetis se pueden comer con más éxito si los inhalas como una aspiradora.", author: "Sophia Loren"},
+{quote: "Una de las mejores cosas de la vida es que debemos interrumpir regularmente cualquier labor y concentrar nuestra atención en la comida.", author: "Luciano Pavarotti"},
+{quote: " La vida es una combinación de magia y pasta.", author: "George Bernard Shaw"},
+{quote: "No tienes que cocinar sofisticadas o complicadas obras maestras, solo una buena comida con ingredientes frescos.", author: "Julia Child"},
+{quote: "Su dieta es como una cuenta bancaria. Y las decisiones buenas sobre la comida son buenas inversiones.", author: "Bethenny Frankel"}]%>
+<%var randomNumber = randomInt(0, 8)%>
+<div class="d-flex container justify-content-center">
+    <blockquote id="homeQuote">
+        <div id="homeQuoteMain" class="row justify-content-center flex-column">
+            <p class="align-self-start col-1 mb-1" id="quotesMark">❛</p>
+            <p class="align-self-center col-10 mb-1"><%= randomQuote[randomNumber].quote %></p>
+            <p class="align-self-start col-1 mb-1"id="quotesMark">❜</p>
+        </div>
+        <div class="flex-column col-12">
+            <footer id="quoteAuthor">-<%= randomQuote[randomNumber].author %>-</footer>
+        </div>
+      </blockquote>
+</div> 
+-->
+
+
+<%- include("../partials/footer") %>
