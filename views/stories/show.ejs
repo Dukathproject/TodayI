@@ -1,45 +1,97 @@
-<%- include("../partials/header") %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Today I</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://kit.fontawesome.com/6a01d8d805.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h1>TEST</h1>
+                <!--Stories Generator-->
 
-<div class="container">
-    <div class="row">
-        <h1>TEST</h1>
-        <!--Stories Generator-->
-        <% stories.forEach(function(story){ %>
-            <% if(story.published){ %>
-                <section>
+                <%function randomInt(min, max){%>
+                    <%return min + Math.floor((max - min) * Math.random())%>
+                <%}%>
+
+                <%var randomStory = []%>
+
+                <% stories.forEach(function(story){ %>
+                    <% randomStory.push(story); %>
+                <% }); %>
+
+                <%var randomNumber = randomInt(0, randomStory.length)%>
+
+                
+                <div>
+                    <blockquote>
+                        <div>
+                            <div>
+                                <h1>❛</h1>
+                                <h1><%= randomStory[randomNumber].bodytext %></h1>
+                                <h1>❜</h1>
+                            </div>
+                            <% if(randomStory[randomNumber].name != ""){ %>
+                                <h3><%= randomStory[randomNumber].name %></h3>
+                            <% } else { %>
+                                <h3>Anonymous</h3>
+                            <% } %>
+                            <% if(randomStory[randomNumber].place != ""){ %>
+                                <h4><%= randomStory[randomNumber].place %></h4>
+                            <% } else { %>
+                                <h5>Somewhere across the world</h5>
+                            <% } %>
+                            <h5><%= randomStory[randomNumber].date %></h5>
+                        </div>
+                      </blockquote>
+                </div> 
+
+                <!-- <% stories.forEach(function(story){ %>
+                    <% if(story.published){ %>
+                        <section>
+                            <div>
+                                <% if(story.name != ""){ %>
+                                    <h3><%= story.name %></h3>
+                                <% } else { %>
+                                    <h3>Anonymous</h3>
+                                <% } %>
+                                <h1><%= story.bodytext %></h1>
+                                <% if(story.place != ""){ %>
+                                    <h4><%= story.place %></h4>
+                                <% } else { %>
+                                    <h5>Somewhere across the world</h5>
+                                <% } %>
+                                <h5><%= story.date %></h5>
+                            </div>
+                        </section>
+                    <% }; %>
+                <% }); %>
+            </div> -->
+            <!--Form-->
+        <div>
+            <div>
+                <!--Title-->
+                <h1>Shed some light across the world.</h1>
+                <p>Share something that you did today, no matter how small, that made you feel a little better.</p>
                     <div>
-                        <h2><%=story.name%></h2>
-                        <p><%=story.bodytext%></p>
-                        <h3><%=story.place%></h3>
-                        <h3><%=story.date%></h3>
-                    </div>
-                </section>
-            <% }; %>
-        <% }); %>
-    </div>
-    <!--Form-->
-<div class="container">
-    <div class="row" style="text-align: center;">
-        <!--Title-->
-        <h1 class="col-lg-12" style="width: 100%; margin: 30px auto">New Story</h1>
-            <div style="width: 30%; margin: 0 auto">
-            <form class="col-lg-12" action="/stories" method="POST">
-                <div class="form-group">
-                    <input class="form-control" type="text" name="name" placeholder="name">
+                    <form action="/stories" method="POST">
+                        <div>
+                            <input type="text" name="name" placeholder="Your name">
+                        </div>
+                        <div>
+                        <p>Today I...<span class="quotes">"</span></p>
+                        <textarea name="bodytext" type="text" rows="2" cols="10" maxlength="140" required></textarea><span class="quotes">"</span>
+                        <div>
+                            <input type="text" name="place" placeholder="Where are you from?">
+                        </div>
+                        <div>
+                            <button>Share!</button>
+                        </div>
+                    </form>
                 </div>
-                <textarea name="bodytext" type="text" rows="10" cols="50">Story</textarea>
-                <div class="form-group">
-                    <input class="form-control" type="text" name="place" placeholder="place">
-                </div>
-                <!-- <div class="form-group">
-                    <input class="form-control" type="text" name="date" placeholder="date">
-                </div> -->
-                <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block">Publish!</button>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
-</div>
-
-<%- include("../partials/footer") %>
+    </body>
+</html>

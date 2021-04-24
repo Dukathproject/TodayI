@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 // var passport = require("passport");
-var User = require("../models/user");
+// var User = require("../models/user");
 var Story = require("../models/stories");
 
 //----------------------------
@@ -21,7 +21,7 @@ router.get("/", function(req, res){
 router.post("/stories", function(req, res){
     // get data from form and add to stories array
     var name = req.body.name;
-    var bodytext = req.body.bodytext;
+    var bodytext = "Today I " + req.body.bodytext;
     var place = req.body.place;
 
     let newDate = new Date();
