@@ -2,31 +2,42 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <p class="lead">Historias</p>
-            <div class="list-group">
-                <li class="list-group-item active"><%= stories.origAuthor %></li>
-                <li class="list-group-item">Info 2</li>
-                <li class="list-group-item">Info 3</li>
-            </div>
-        </div>
-        <div class="card col-md-9">
-            <div class="img-responsive">
-                <img class="card-img-top" src="<%= stories.image %>">
-                <div class="caption">
-                    <h5 class="pull-right">$<%= stories.description %></h5>
-                    <h4><a href=""><%= stories.name %></a></h4>
-                    <p><%= stories.bodytext %></p>
-
-                    <% if(currentUser && post.author.id.equals(currentUser._id)){ %>
-                        <a href="/posts/stories/new" class="btn btn-sm btn-primary">Nueva Historia</a>
-                        <a class="btn btn-sm btn-warning" href="/stories/<%= stories._id %>/edit">Editar Historia</a>
-                        <form id="form-delete" class="form-inline" action="/stories/<%= stories._id %>?_method=DELETE" method="POST">
-                            <button class="form-control btn btn-sm btn-danger">Eliminar Historia</button>
-                    </form>
-                    <% } %>
+        <h1>TEST</h1>
+        <!--Stories Generator-->
+        <% stories.forEach(function(story){ %>
+            <% if(story.published){ %>
+                <section>
+                    <div>
+                        <h2><%=story.name%></h2>
+                        <p><%=story.bodytext%></p>
+                        <h3><%=story.place%></h3>
+                        <h3><%=story.date%></h3>
+                    </div>
+                </section>
+            <% }; %>
+        <% }); %>
+    </div>
+    <!--Form-->
+<div class="container">
+    <div class="row" style="text-align: center;">
+        <!--Title-->
+        <h1 class="col-lg-12" style="width: 100%; margin: 30px auto">New Story</h1>
+            <div style="width: 30%; margin: 0 auto">
+            <form class="col-lg-12" action="/stories" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="name">
                 </div>
-            </div>
+                <textarea name="bodytext" type="text" rows="10" cols="50">Story</textarea>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="place" placeholder="place">
+                </div>
+                <!-- <div class="form-group">
+                    <input class="form-control" type="text" name="date" placeholder="date">
+                </div> -->
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Publish!</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
