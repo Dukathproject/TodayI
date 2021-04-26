@@ -17,6 +17,7 @@ mongoose.connect(mongoDb_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+
 //Check message
 mongoose.connection.on("connected", () => {
     console.log("Mongoose is connected!");

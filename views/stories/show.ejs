@@ -5,70 +5,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="https://kit.fontawesome.com/6a01d8d805.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
     </head>
     <body>
         <div>
             <div>
                 <h1>TEST</h1>
                 <!--Stories Generator-->
+                <div id="selectedStory">
+                    <h1 id="bodyText"></h1>
+                    <h3 id="by"></h3>
+                    <h5 id="place"></h5>
+                    <h5 id="date"></h5>
+                </div>
 
-                <%function randomInt(min, max){%>
-                    <%return min + Math.floor((max - min) * Math.random())%>
-                <%}%>
-
-                <%var randomStory = []%>
-
-                <% stories.forEach(function(story){ %>
-                    <% randomStory.push(story); %>
-                <% }); %>
-
-                <%var randomNumber = randomInt(0, randomStory.length)%>
-
-                
-                <div>
-                    <blockquote>
-                        <div>
-                            <div>
-                                <h1>❛</h1>
-                                <h1><%= randomStory[randomNumber].bodytext %></h1>
-                                <h1>❜</h1>
-                            </div>
-                            <% if(randomStory[randomNumber].name != ""){ %>
-                                <h3><%= randomStory[randomNumber].name %></h3>
-                            <% } else { %>
-                                <h3>Anonymous</h3>
-                            <% } %>
-                            <% if(randomStory[randomNumber].place != ""){ %>
-                                <h4><%= randomStory[randomNumber].place %></h4>
-                            <% } else { %>
-                                <h5>Somewhere across the world</h5>
-                            <% } %>
-                            <h5><%= randomStory[randomNumber].date %></h5>
-                        </div>
-                      </blockquote>
-                </div> 
-
-                <!-- <% stories.forEach(function(story){ %>
-                    <% if(story.published){ %>
-                        <section>
-                            <div>
-                                <% if(story.name != ""){ %>
-                                    <h3><%= story.name %></h3>
-                                <% } else { %>
-                                    <h3>Anonymous</h3>
-                                <% } %>
-                                <h1><%= story.bodytext %></h1>
-                                <% if(story.place != ""){ %>
-                                    <h4><%= story.place %></h4>
-                                <% } else { %>
-                                    <h5>Somewhere across the world</h5>
-                                <% } %>
-                                <h5><%= story.date %></h5>
-                            </div>
-                        </section>
-                    <% }; %>
-                <% }); %>
-            </div> -->
             <!--Form-->
         <div>
             <div>
@@ -94,4 +44,5 @@
             </div>
         </div>
     </body>
+    <script src="/scripts/storiesgenerator.js" crossorigin="anonymous"></script>
 </html>

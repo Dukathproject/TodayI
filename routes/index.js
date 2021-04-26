@@ -6,14 +6,23 @@ var Story = require("../models/stories");
 
 //----------------------------
 //INDEX - show all stories
+
 router.get("/", function(req, res){
+        res.render("stories/show");
+});
+
+router.get("/storiesList", function(req, res){
     // Get all stories from DB
-    Story.find({}, function(err, allStories){
-       if(err){
-           console.log(err);
-       } else {
-          res.render("stories/show",{stories:allStories});
-       }
+    Story.find({published: true}, function(err, allStories){
+        if(err){
+            console.log(err);
+        } else {
+            var stories = []
+            allStories.forEach(function(story){
+            stories.push(story);
+            });
+            res.send(JSON.stringify(stories));
+        }
     });
 });
 
