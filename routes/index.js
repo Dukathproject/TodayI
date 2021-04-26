@@ -30,7 +30,7 @@ router.get("/storiesList", function(req, res){
 router.post("/stories", function(req, res){
     // get data from form and add to stories array
     var name = req.body.name;
-    var bodytext = "Today I " + req.body.bodytext;
+    var bodytext = "Today I " + (req.body.bodytext).toLowerCase();
     var place = req.body.place;
 
     let newDate = new Date();
