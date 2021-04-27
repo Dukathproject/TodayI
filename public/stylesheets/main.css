@@ -6,5 +6,20 @@ body {
     size: 3em;
 }
 
+
+@keyframes transition {
+    0%   {opacity: 0;}
+    20%  {opacity: 1;}
+    80%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+  
+  /* The element to apply the animation to */
+  .animatedTransition {
+    animation-name: transition;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+  }
+
 @media screen and (max-width: 1200px) {
 }

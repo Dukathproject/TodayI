@@ -8,6 +8,7 @@ fetch('/storiesList').then(res => res.json()).then(function(json) {
 });
 
 //GET ELEMENTS
+var selectedStory = document.getElementById("selectedStory");
 var bodyText = document.getElementById("bodytext");
 var userName = document.getElementById("name");
 var place = document.getElementById("place");
@@ -24,6 +25,8 @@ setTimeout(setInterval(function(){
     var randNum = randomInt(0, stories.length);
     var storyNum = stories[randNum];
     //UPDATE HTML
+    selectedStory.classList.add("animatedTransition");
+    // AGREGAR IF "UBICACION VACIA" "NOMBRE ANONYMOUS"
     bodyText.textContent = storyNum.bodytext;
     userName.textContent = storyNum.name;
     place.textContent = storyNum.place;
