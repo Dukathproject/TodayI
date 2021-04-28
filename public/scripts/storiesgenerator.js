@@ -28,7 +28,11 @@ setTimeout(setInterval(function(){
     selectedStory.classList.add("animatedTransition");
     // AGREGAR IF "UBICACION VACIA" "NOMBRE ANONYMOUS"
     bodyText.textContent = storyNum.bodytext;
-    userName.textContent = storyNum.name;
+    if(storyNum.name != ""){
+        userName.textContent = storyNum.name;
+    }else{
+        userName.textContent = "Anonymous";
+    };
     place.textContent = storyNum.place;
     date.textContent = storyNum.date;
 }, 8000), 1000);
