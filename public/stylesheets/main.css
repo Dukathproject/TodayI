@@ -1,9 +1,44 @@
-body {  
-    font-family: 'Nunito', sans-serif;
+/* ---- reset ---- */
+
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  background: rgb(36,0,33);
+  background: linear-gradient(0deg, rgba(36,0,33,1) 0%, rgba(129,125,255,1) 28%, rgba(223,232,255,1) 54%, rgba(220,233,255,1) 100%);
+  color:rgb(63, 21, 129)
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
 }
 
 .quotes {
-    font-size: 2em;
+  font-size: 2em;
+}
+
+.storyFont1 {
+font-family: 'Architects Daughter', cursive
+}
+.storyFont2 {
+font-family: 'Homemade Apple', cursive;
+}
+.storyFont3 {
+font-family: 'East Sea Dokdo', cursive;
+}
+.storyFont4 {
+font-family: 'Inconsolata', monospace;
+}
+.storyFont5 {
+font-family: 'Caveat', cursive;
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 #bodytext {
@@ -11,27 +46,12 @@ body {
   line-height: 1.3em;
 }
 
-.storyFont1 {
-  font-family: 'Architects Daughter', cursive
-}
-.storyFont2 {
-  font-family: 'Homemade Apple', cursive;
-}
-.storyFont3 {
-  font-family: 'East Sea Dokdo', cursive;
-}
-.storyFont4 {
-  font-family: 'Inconsolata', monospace;
-}
-.storyFont5 {
-  font-family: 'Caveat', cursive;
-}
-
 
 
 #selectedStory {
-  margin-top: 200px;
-  height: 300px;
+  padding-top: 250px;
+  padding-bottom: 200px;
+  height: 250px;
   opacity: 0;
 }
 
