@@ -11,15 +11,28 @@ body {
   line-height: 1.3em;
 }
 
-#storyHead {
+.storyFont1 {
+  font-family: 'Architects Daughter', cursive
 }
+.storyFont2 {
+  font-family: 'Homemade Apple', cursive;
+}
+.storyFont3 {
+  font-family: 'East Sea Dokdo', cursive;
+}
+.storyFont4 {
+  font-family: 'Inconsolata', monospace;
+}
+.storyFont5 {
+  font-family: 'Caveat', cursive;
+}
+
+
 
 #selectedStory {
-  margin-top: 250px;
-}
-
-#form {
-  margin-top: 100px;
+  margin-top: 200px;
+  height: 300px;
+  opacity: 0;
 }
 
 @keyframes transition {
