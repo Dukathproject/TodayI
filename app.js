@@ -40,10 +40,10 @@ app.use("/", indexRoutes);
 
 //----------------------------
 // server listen
-app.listen(3000, function(req, res) {
-    console.log("Today I server has started!");
-});
-// app.listen(process.env.PORT, process.env.IP, function(){
+// app.listen(3000, function(req, res) {
 //     console.log("Today I server has started!");
 // });
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("Today I server has started!");
+});
 //----------------------------
