@@ -1,12 +1,3 @@
-var stories = [];
-//GET DATABASE LIST
-fetch('/storiesList').then(res => res.json()).then(function(json) {
-    //POPULATE STORIES TO VAR
-    json.forEach(function(story){
-        stories.push(story);
-    });
-});
-
 //GET ELEMENTS
 var storyGroup = document.getElementById("storyGroup");
 var selectedStory = document.getElementById("selectedStory");
@@ -31,9 +22,9 @@ function changeStory(){
         storyGroup.classList.remove(storyGroup.classList);
     }
     storyGroup.classList.add(randFontList[randFont]);;
+
     //UPDATE HTML
     selectedStory.classList.add("animatedTransition");
-    // AGREGAR IF "UBICACION VACIA" "NOMBRE ANONYMOUS"
     bodyText.textContent = storyNum.bodytext;
     if(storyNum.name != ""){
         userName.textContent = storyNum.name;
@@ -44,7 +35,15 @@ function changeStory(){
     date.textContent = storyNum.date;
 }
 
-//TIMER
-setTimeout(setInterval(function(){
+var stories = [];
+//GET DATABASE LIST
+fetch('/storiesList').then(res => res.json()).then(function(json) {
+    //POPULATE STORIES TO VAR
+    json.forEach(function(story){
+        stories.push(story);
+    });
     changeStory();
-}, 8000), 1000);
+    setInterval(function(){
+        changeStory();
+    }, 8000);
+});
