@@ -5,12 +5,11 @@ body {
   margin: 0;
   background: rgb(36,0,33);
   background: linear-gradient(0deg, rgba(36,0,33,1) 0%, rgba(129,125,255,1) 28%, rgba(223,232,255,1) 54%, rgba(220,233,255,1) 100%);
-  color:rgb(63, 21, 129)
+  color:rgb(63, 21, 129);
 }
 
 canvas {
   display: block;
-  vertical-align: bottom;
 }
 
 .quotes {
@@ -18,16 +17,19 @@ canvas {
 }
 
 .storyFont1 {
-font-family: 'Architects Daughter', cursive
+font-family: 'Architects Daughter', cursive;
+font-size: 1.7em;
 }
 .storyFont2 {
 font-family: 'Homemade Apple', cursive;
+font-size: 1.5em;
 }
 .storyFont3 {
 font-family: 'East Sea Dokdo', cursive;
 }
 .storyFont4 {
 font-family: 'Inconsolata', monospace;
+font-size: 1.5em;
 }
 .storyFont5 {
 font-family: 'Caveat', cursive;
@@ -46,11 +48,23 @@ font-family: 'Caveat', cursive;
   line-height: 1.3em;
 }
 
+#madeBy {
+  font-size: 1em;
+  padding-top: 30px;
+  opacity: 1;
+  margin-bottom: 0;
+}
 
+#madeByTitle {
+  opacity: 0.5;
+  color: white !important;
+  background-color: rgb(63, 21, 129);
+  border-radius: 50px;
+}
 
 #selectedStory {
-  padding-top: 250px;
-  padding-bottom: 200px;
+  padding-top: 230px;
+  padding-bottom: 180px;
   height: 250px;
   opacity: 0;
 }
@@ -70,4 +84,17 @@ font-family: 'Caveat', cursive;
   }
 
 @media screen and (max-width: 1200px) {
+
+
+  #form {
+    padding-top: 100px;
+  }
+
+  #selectedStory {
+    padding-top: 50px;
+    padding-bottom: 200px;
+    height: 250px;
+    opacity: 0;
+  }
+
 }
