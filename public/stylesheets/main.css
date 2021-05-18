@@ -1,19 +1,30 @@
 /* ---- reset ---- */
+html {
+  height: 100%;
+  overflow:visible;
+}
+
+
 
 body {
   font-family: 'Nunito', sans-serif;
-  margin: 0;
-  background: rgb(36,0,33);
-  background: linear-gradient(0deg, rgba(36,0,33,1) 0%, rgba(129,125,255,1) 28%, rgba(223,232,255,1) 54%, rgba(220,233,255,1) 100%);
+  background: rgb(129,125,255);
+  background: linear-gradient(0deg, rgba(129,125,255,1) 0%, rgba(223,232,255,1) 30%, rgba(220,233,255,1) 100%);
   color:rgb(63, 21, 129);
 }
 
 canvas {
   display: block;
+  height: auto;
 }
 
 .quotes {
   font-size: 2em;
+}
+
+.inactiveLink {
+  pointer-events: none;
+  cursor: default;
 }
 
 .storyFont1 {
@@ -37,6 +48,10 @@ font-family: 'Caveat', cursive;
 
 /* ---- particles.js container ---- */
 
+#shareButton {
+  background-color: rgb(63, 21, 129);
+}
+
 #particles-js {
   position: fixed;
   width: 100%;
@@ -51,8 +66,6 @@ font-family: 'Caveat', cursive;
 #madeBy {
   font-size: 1em;
   padding-top: 30px;
-  opacity: 1;
-  margin-bottom: 0;
 }
 
 #madeByTitle {
@@ -85,6 +98,10 @@ font-family: 'Caveat', cursive;
 
 @media screen and (max-width: 1200px) {
 
+  html {
+    height: 140%;
+    overflow:visible;
+  }
 
   #form {
     padding-top: 100px;
